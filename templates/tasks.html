@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Tasks - Todo App{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="h4 m-0">Your Tasks</h2>
+            <div class="w-50 d-none d-md-block">
+                <div class="progress" role="progressbar" aria-label="Task progress">
+                    <div class="progress-bar" id="progressBar" style="width: 0%">0%</div>
+                </div>
+            </div>
+        </div>
+
+        <form id="taskForm" class="row g-3 mb-4">
+            <div class="col-md-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" required>
+            </div>
+            <div class="col-md-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control" id="description">
+            </div>
+            <div class="col-md-2">
+                <label for="due_date" class="form-label">Due Date</label>
+                <input type="datetime-local" class="form-control" id="due_date">
+            </div>
+            <div class="col-md-2">
+                <label for="category" class="form-label">Category</label>
+                <select id="category" class="form-select">
+                    <option>Personal</option>
+                    <option>Work</option>
+                    <option>Study</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="priority" class="form-label">Priority</label>
+                <select id="priority" class="form-select">
+                    <option>Low</option>
+                    <option selected>Medium</option>
+                    <option>High</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Add Task</button>
+            </div>
+        </form>
+
+        <div class="row g-3 align-items-end mb-4">
+            <div class="col-md-4">
+                <label for="search" class="form-label">Search</label>
+                <input type="text" id="search" class="form-control" placeholder="Search tasks...">
+            </div>
+            <div class="col-md-3">
+                <label for="filterCategory" class="form-label">Category</label>
+                <select id="filterCategory" class="form-select">
+                    <option value="">All</option>
+                    <option>Personal</option>
+                    <option>Work</option>
+                    <option>Study</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="filterPriority" class="form-label">Priority</label>
+                <select id="filterPriority" class="form-select">
+                    <option value="">All</option>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+            </div>
+            <div class="col-md-2 d-grid">
+                <button id="applyFilters" class="btn btn-outline-secondary">Apply</button>
+            </div>
+        </div>
+
+        <div id="tasks" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+            <!-- Tasks will be injected here -->
+        </div>
+    </div>
+    <div class="card-footer d-md-none">
+        <div class="progress" role="progressbar" aria-label="Task progress">
+            <div class="progress-bar" id="progressBarMobile" style="width: 0%">0%</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

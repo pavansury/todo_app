@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to Todo App</h1>
+    <p>Organize your tasks and boost your productivity</p>
+    {% if not current_user.is_authenticated %}
+        <div class="d-flex justify-content-center gap-2">
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+            <a href="{{ url_for('register') }}" class="btn btn-outline-secondary">Register</a>
+        </div>
+    {% else %}
+        <div class="d-flex justify-content-center gap-2">
+            <a href="{{ url_for('tasks') }}" class="btn btn-primary">Go to Tasks</a>
+        </div>
+    {% endif %}
+</div>
+
+<div class="features">
+    <div class="feature">
+        <h3>Organize Tasks</h3>
+        <p>Create and manage your tasks efficiently</p>
+    </div>
+    <div class="feature">
+        <h3>Track Progress</h3>
+        <p>Mark tasks as completed and track your progress</p>
+    </div>
+    <div class="feature">
+        <h3>Set Due Dates</h3>
+        <p>Add due dates to your tasks and never miss a deadline</p>
+    </div>
+</div>
+{% endblock %}

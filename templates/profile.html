@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Profile - Todo App{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <h2>Your Profile</h2>
+    
+    <div class="profile-info">
+        <div class="info-item">
+            <strong>Username:</strong> {{ user.username }}
+        </div>
+        <div class="info-item">
+            <strong>Email:</strong> {{ user.email }}
+        </div>
+        <div class="info-item">
+            <strong>Member since:</strong> {{ user.created_at.strftime('%Y-%m-%d') }}
+        </div>
+    </div>
+    
+    <div class="stats">
+        <h3>Your Statistics</h3>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="total-tasks">0</div>
+                <div class="stat-label">Total Tasks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completed-tasks">0</div>
+                <div class="stat-label">Completed Tasks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="pending-tasks">0</div>
+                <div class="stat-label">Pending Tasks</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
