@@ -31,9 +31,3 @@ python app.py
 ```
 
 3. Open http://127.0.0.1:5000
-
-## Notes
-- Uses SQLite database (`database.db`). Tables are created on first run.
-- A small SQLite migration helper adds `category` and `priority` columns if missing.
-- Passwords are hashed with Werkzeug; consider using Flask-WTF for CSRF/forms if you extend this.
-- For production, set a strong `SECRET_KEY` via environment variable.
